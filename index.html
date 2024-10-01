@@ -116,6 +116,19 @@
 										</div>
 										<ul class="actions">
 											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<script>
+												document.getElementById('contact-form').addEventListener('submit', (e) => {
+													e.preventDefault(); // Prevent default form submission
+										
+													emailjs.sendForm('service_uv338ih', 'template_e3o9sej', this) // Replace with your service and template IDs
+														.then(() => {
+															alert('Email sent successfully!');
+															e.target.reset(); // Reset the form after successful submission
+														}, (error) => {
+															alert('Error sending email: ' + JSON.stringify(error));
+														});
+												});
+											</script>
 											<li><input type="reset" value="Reset" /></li>
 										</ul>
 									</form>
@@ -124,19 +137,7 @@
 									</ul>
 								</article>
 							
-								<script>
-									document.getElementById('contact-form').addEventListener('submit', (e) => {
-										e.preventDefault(); // Prevent default form submission
-							
-										emailjs.sendForm('service_uv338ih', 'template_e3o9sej', this) // Replace with your service and template IDs
-											.then(() => {
-												alert('Email sent successfully!');
-												e.target.reset(); // Reset the form after successful submission
-											}, (error) => {
-												alert('Error sending email: ' + JSON.stringify(error));
-											});
-									});
-								</script>
+								
 							</body>
 							</html>
 							
